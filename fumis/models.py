@@ -32,6 +32,45 @@ class Info:
     overheatings: int
     uptime: int
 
+    def __init__(
+        self,
+        unit_id: str,
+        unit_version: str,
+        controller_version: str,
+        ip: str,
+        rssi: int,
+        signal_strength: int,
+        state: str,
+        state_id: int,
+        status: str,
+        status_id: int,
+        temperature: float,
+        target_temperature: float,
+        heating_time: int,
+        igniter_starts: int,
+        misfires: int,
+        overheatings: int,
+        uptime: int,
+    ):
+        """Initialize info object holding info and states of the Fumis WiRCU device."""
+        self.unit_id = unit_id
+        self.unit_version = unit_version
+        self.controller_version = controller_version
+        self.ip = ip
+        self.rssi = rssi
+        self.signal_strength = signal_strength
+        self.state = state
+        self.state_id = state_id
+        self.status = status
+        self.status_id = status_id
+        self.temperature = temperature
+        self.target_temperature = target_temperature
+        self.heating_time = heating_time
+        self.igniter_starts = igniter_starts
+        self.misfires = misfires
+        self.overheatings = overheatings
+        self.uptime = uptime
+
     @staticmethod
     def from_dict(data: dict):
         """Return device object from Fumis WiRCU device response."""

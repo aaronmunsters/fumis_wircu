@@ -1,6 +1,10 @@
 """Tests for retreiving information from the Fumis WiRCU device."""
+
+import asyncio
+
 import aiohttp
 import pytest
+
 from fumis import Fumis
 from fumis.exceptions import FumisError
 
@@ -8,8 +12,9 @@ from . import load_fixture
 
 
 @pytest.mark.asyncio
-async def test_info_update(event_loop, aresponses):
+async def test_info_update(aresponses):
     """Test getting Fumis WiRCU device information and states."""
+    event_loop = asyncio.get_event_loop()
     aresponses.add(
         "api.fumis.si",
         "/v1/status",
@@ -22,7 +27,10 @@ async def test_info_update(event_loop, aresponses):
     )
     async with aiohttp.ClientSession(loop=event_loop) as session:
         fumis = Fumis(
-            mac="AABBCCDDEEFF", password="1234", session=session, loop=event_loop,
+            mac="AABBCCDDEEFF",
+            password="1234",
+            session=session,
+            loop=event_loop,
         )
         info = await fumis.update_info()
         assert info
@@ -46,8 +54,9 @@ async def test_info_update(event_loop, aresponses):
 
 
 @pytest.mark.asyncio
-async def test_signal_strength(event_loop, aresponses):
+async def test_signal_strength(aresponses):
     """Test retreiving Fumis WiRCU device WiFi signal strength."""
+    event_loop = asyncio.get_event_loop()
     aresponses.add(
         "api.fumis.si",
         "/v1/status",
@@ -61,7 +70,10 @@ async def test_signal_strength(event_loop, aresponses):
 
     async with aiohttp.ClientSession(loop=event_loop) as session:
         fumis = Fumis(
-            mac="AABBCCDDEEFF", password="1234", session=session, loop=event_loop,
+            mac="AABBCCDDEEFF",
+            password="1234",
+            session=session,
+            loop=event_loop,
         )
         info = await fumis.update_info()
         assert info
@@ -70,8 +82,9 @@ async def test_signal_strength(event_loop, aresponses):
 
 
 @pytest.mark.asyncio
-async def test_signal_strength_0(event_loop, aresponses):
+async def test_signal_strength_0(aresponses):
     """Test retreiving Fumis WiRCU device WiFi signal strength with -100 dB."""
+    event_loop = asyncio.get_event_loop()
     aresponses.add(
         "api.fumis.si",
         "/v1/status",
@@ -85,7 +98,10 @@ async def test_signal_strength_0(event_loop, aresponses):
 
     async with aiohttp.ClientSession(loop=event_loop) as session:
         fumis = Fumis(
-            mac="AABBCCDDEEFF", password="1234", session=session, loop=event_loop,
+            mac="AABBCCDDEEFF",
+            password="1234",
+            session=session,
+            loop=event_loop,
         )
         info = await fumis.update_info()
         assert info
@@ -94,8 +110,9 @@ async def test_signal_strength_0(event_loop, aresponses):
 
 
 @pytest.mark.asyncio
-async def test_info_none(event_loop, aresponses):
+async def test_info_none(aresponses):
     """Test info data is None when communication has occured."""
+    event_loop = asyncio.get_event_loop()
     # Handle to run asserts on request in
     aresponses.add(
         "api.fumis.si",
@@ -112,13 +129,18 @@ async def test_info_none(event_loop, aresponses):
         "/v1/status",
         "GET",
         aresponses.Response(
-            status=200, headers={"Content-Type": "application/json"}, text="",
+            status=200,
+            headers={"Content-Type": "application/json"},
+            text="",
         ),
     )
 
     async with aiohttp.ClientSession(loop=event_loop) as session:
         fumis = Fumis(
-            mac="AABBCCDDEEFF", password="1234", session=session, loop=event_loop,
+            mac="AABBCCDDEEFF",
+            password="1234",
+            session=session,
+            loop=event_loop,
         )
         with pytest.raises(FumisError):
             await fumis.update_info()
