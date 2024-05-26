@@ -4,6 +4,8 @@
 ![Project Maintenance][maintenance-shield]
 [![License][license-shield]](LICENSE.md)
 
+[![Build Status][build-shield]][build]
+
 Asynchronous Python client for the Fumis WiRCU API.
 
 ## About
@@ -90,6 +92,8 @@ The original setup of this repository is by [Franck Nijhof][frenck].
 
 For a full list of all authors and contributors, check [the contributor's page][contributors].
 
+[build-shield]: https://github.com/aaronmunsters/python-fumis/workflows/Continuous%20Integration/badge.svg
+[build]: https://github.com/aaronmunsters/python-fumis/actions
 [contributors]: https://github.com/aaronmunsters/python-fumis/graphs/contributors
 [frenck]: https://github.com/frenck
 [license-shield]: https://img.shields.io/github/license/aaronmunsters/python-fumis.svg

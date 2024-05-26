@@ -35,22 +35,22 @@ async def test_info_update(aresponses):
         info = await fumis.update_info()
         assert info
         assert info.unit_id == "AABBCCDDEEFF"
-        assert info.unit_version == "2.0.0"
-        assert info.controller_version == "1.7.0"
+        assert info.unit_version == "2.6.0"
+        assert info.controller_version == "2.1.0"
         assert info.ip == "192.168.1.2"
-        assert info.rssi == -48
-        assert info.signal_strength == 100
+        assert info.rssi == -77
+        assert info.signal_strength == 46
         assert info.state == "off"
         assert info.state_id == 1
         assert info.status == "off"
         assert info.status_id == 0
-        assert info.temperature == 19.9
-        assert info.target_temperature == 21.8
-        assert info.heating_time == 1823340
-        assert info.igniter_starts == 392
+        assert info.temperature == 19.7
+        assert info.target_temperature == 9
+        assert info.heating_time == 123456
+        assert info.igniter_starts == 123
         assert info.misfires == 0
         assert info.overheatings == 0
-        assert info.uptime == 58184580
+        assert info.uptime == 12345678
 
 
 @pytest.mark.asyncio
