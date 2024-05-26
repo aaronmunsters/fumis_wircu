@@ -34,8 +34,10 @@ async def test_info_update(aresponses):
         )
         info = await fumis.update_info()
         assert info
+        assert info.api_version == "1.3"
         assert info.unit_id == "AABBCCDDEEFF"
         assert info.unit_version == "2.6.0"
+        assert info.unit_temperature == 26
         assert info.controller_version == "2.1.0"
         assert info.ip == "192.168.1.2"
         assert info.rssi == -77

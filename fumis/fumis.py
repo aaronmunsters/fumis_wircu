@@ -51,9 +51,6 @@ class Fumis:
             scheme="https", host="api.fumis.si", port=443, path="/v1/"
         ).join(URL(uri))
 
-        if self._loop is None:
-            self._loop = asyncio.get_event_loop()
-
         if self._session is None:
             self._session = aiohttp.ClientSession(loop=self._loop)
             self._close_session = True
