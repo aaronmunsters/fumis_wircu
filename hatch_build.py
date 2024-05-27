@@ -15,8 +15,8 @@ class MetaDataHook(MetadataHookInterface):
         metadata["version"] = get_version()
         metadata["license"] = "MIT"
         metadata["authors"] = [
-            {"name": "Franck Nijhof"},
-            {"name": "Aäron Munsters", "email": "frenck@frenck.dev"},
+            {"name": "Franck Nijhof", "email": "frenck@frenck.dev"},
+            {"name": "Aäron Munsters"},
         ]
         metadata["maintainers"] = [{"name": "Aäron Munsters"}]
         metadata["description"] = "Asynchronous Python client for the Fumis WiRCU API."
