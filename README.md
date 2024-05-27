@@ -5,6 +5,7 @@
 [![License][license-shield]](LICENSE.md)
 
 [![Build Status][build-shield]][build]
+[![Code Coverage][codecov-shield]][codecov]
 
 Asynchronous Python client for the Fumis WiRCU API.
 
@@ -21,7 +22,7 @@ a target temperature.
 ```python
 import asyncio
 
-from fumis import Fumis
+from fumis_wircu import Fumis
 
 
 async def main(loop):
@@ -92,11 +93,13 @@ The original setup of this repository is by [Franck Nijhof][frenck].
 
 For a full list of all authors and contributors, check [the contributor's page][contributors].
 
-[build-shield]: https://github.com/aaronmunsters/python-fumis/workflows/Continuous%20Integration/badge.svg
-[build]: https://github.com/aaronmunsters/python-fumis/actions
-[contributors]: https://github.com/aaronmunsters/python-fumis/graphs/contributors
+[build-shield]: https://github.com/aaronmunsters/fumis_wircu/workflows/Continuous%20Integration/badge.svg
+[build]: https://github.com/aaronmunsters/fumis_wircu/actions
+[codecov-shield]: https://codecov.io/gh/aaronmunsters/fumis_wircu/branch/master/graph/badge.svg
+[codecov]: https://codecov.io/gh/aaronmunsters/fumis_wircu
+[contributors]: https://github.com/aaronmunsters/fumis_wircu/graphs/contributors
 [frenck]: https://github.com/frenck
-[license-shield]: https://img.shields.io/github/license/aaronmunsters/python-fumis.svg
+[license-shield]: https://img.shields.io/github/license/aaronmunsters/fumis_wircu.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2024
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-experimental-yellow.svg
 [semver]: http://semver.org/spec/v2.0.0.html

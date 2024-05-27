@@ -47,7 +47,7 @@ jobs:
           pip install -r requirements.txt
           pip list
       - name: Pytest with coverage reporting
-        run: pytest --cov=fumis --cov-report=xml
+        run: pytest --cov=fumis_wircu --cov-report=xml
       - name: Upload coverage to Codecov
         if: matrix.python == 3.12 && matrix.os == 'ubuntu'
         uses: codecov/codecov-action@v4

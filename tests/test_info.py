@@ -5,8 +5,8 @@ import asyncio
 import aiohttp
 import pytest
 
-from fumis import Fumis
-from fumis.exceptions import FumisError
+from fumis_wircu import Fumis
+from fumis_wircu.exceptions import FumisError
 
 from . import load_fixture
 

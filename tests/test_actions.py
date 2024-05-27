@@ -5,7 +5,7 @@ import asyncio
 import aiohttp
 import pytest
 
-from fumis import Fumis
+from fumis_wircu import Fumis
 
 
 @pytest.mark.asyncio

@@ -5,9 +5,9 @@ import asyncio
 import aiohttp
 import pytest
 
-from fumis import Fumis
-from fumis.__version__ import __version__
-from fumis.exceptions import FumisConnectionError, FumisError
+from fumis_wircu import Fumis
+from fumis_wircu.__version__ import __version__
+from fumis_wircu.exceptions import FumisConnectionError, FumisError
 
 
 @pytest.mark.asyncio

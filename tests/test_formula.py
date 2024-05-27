@@ -1,6 +1,6 @@
 """Tests for rssi to signal strength formula."""
 
-from fumis.models import rssi_to_signal_strength
+from fumis_wircu.models import rssi_to_signal_strength
 
 
 def test_rssi_to_signal_strength():
