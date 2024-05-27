@@ -38,7 +38,7 @@ class MetaDataHook(MetadataHookInterface):
 
         # TODO: compute this automatically
         metadata["dependencies"] = ["aiohttp>=3.9.5", "async-timeout>=4.0.3", "yarl"]
-        metadata["keywords"] = ["fumis", "wicru", "api", "async", "client"]
+        metadata["keywords"] = ["fumis", "wircu", "api", "async", "client"]
 
 
 def get_version():
