@@ -95,7 +95,7 @@ For a full list of all authors and contributors, check [the contributor's page][
 
 [build-shield]: https://github.com/aaronmunsters/fumis_wircu/workflows/Continuous%20Integration/badge.svg
 [build]: https://github.com/aaronmunsters/fumis_wircu/actions
-[codecov-shield]: https://codecov.io/gh/aaronmunsters/fumis_wircu/branch/master/graph/badge.svg
+[codecov-shield]: https://codecov.io/gh/aaronmunsters/fumis_wircu/branch/main/graph/badge.svg
 [codecov]: https://codecov.io/gh/aaronmunsters/fumis_wircu
 [contributors]: https://github.com/aaronmunsters/fumis_wircu/graphs/contributors
 [frenck]: https://github.com/frenck
