@@ -1,6 +1,5 @@
 """Models for the Fumis WiRCU API."""
 
-
 STATUS_OFF = "off"
 STATUS_PRE_HEATING = "pre_heating"
 STATUS_IGNITION = "ignition"

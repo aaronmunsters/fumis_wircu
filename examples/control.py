@@ -3,7 +3,7 @@
 
 import asyncio
 
-from fumis import Fumis
+from fumis_wircu import Fumis
 
 
 async def main(loop):

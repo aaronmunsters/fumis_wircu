@@ -1,6 +1,8 @@
 """Asynchronous Python for the Fumis WiRCU API."""
+
 import asyncio
 import socket
+from asyncio.events import AbstractEventLoop
 from typing import Dict, Optional, Union
 
 import aiohttp
@@ -21,11 +23,11 @@ class Fumis:
         self,
         mac: str,
         password: str,
+        loop: AbstractEventLoop,
         application_name: str = "PythonFumis",
-        loop: asyncio.events.AbstractEventLoop = None,
         request_timeout: int = 60,
         session: aiohttp.client.ClientSession = None,
-        user_agent: str = None,
+        user_agent: str = f"PythonFumis/{__version__}",
     ) -> None:
         """Initialize connection with the Fumis WiRCU API."""
         self._loop = loop
@@ -38,9 +40,6 @@ class Fumis:
         self.request_timeout = request_timeout
         self.user_agent = user_agent
 
-        if user_agent is None:
-            self.user_agent = f"PythonFumis/{__version__}"
-
     async def _request(
         self,
         uri: str = "",
@@ -52,15 +51,12 @@ class Fumis:
             scheme="https", host="api.fumis.si", port=443, path="/v1/"
         ).join(URL(uri))
 
-        if self._loop is None:
-            self._loop = asyncio.get_event_loop()
-
         if self._session is None:
             self._session = aiohttp.ClientSession(loop=self._loop)
             self._close_session = True
 
         try:
-            with async_timeout.timeout(self.request_timeout):
+            async with async_timeout.timeout(self.request_timeout):
                 response = await self._session.request(
                     method,
                     url,

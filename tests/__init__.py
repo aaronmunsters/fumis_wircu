@@ -1,4 +1,5 @@
 """Asynchronous Python client for the Fumis WiRCU API."""
+
 import os
 
 

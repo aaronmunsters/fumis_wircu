@@ -25,5 +25,5 @@ Even better: You could submit a pull request with a fix / new feature!
    developers, or if you do not have permission to do that, you may request
    the second reviewer to merge it for you.
 
-[github]: https://github.com/frenck/python-fumis/issues
-[prs]: https://github.com/frenck/python-fumis/pulls
+[github]: https://github.com/aaronmunsters/fumis_wircu/issues
+[prs]: https://github.com/aaronmunsters/fumis_wircu/pulls

@@ -36,8 +36,8 @@ lint: lint-black lint-flake8 lint-pylint lint-mypy ## Run all linters.
 
 .PHONY: lint-black
 lint-black: ## Run linting using black & blacken-docs.
-	black --safe --target-version py36 fumis tests examples; \
-	blacken-docs --target-version py36
+	black --safe --target-version py312 fumis tests examples; \
+	blacken-docs --target-version py312
 
 .PHONY: lint-flake8
 lint-flake8: ## Run linting using flake8 (pycodestyle/pydocstyle).

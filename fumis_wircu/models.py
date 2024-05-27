@@ -1,17 +1,19 @@
 """Models for the Fumis WiRCU."""
 
-import attr
+from dataclasses import dataclass
 
 from .const import STATE_MAPPING, STATE_UNKNOWN, STATUS_MAPPING, STATUS_UNKNOWN
 
 
-@attr.s(auto_attribs=True, frozen=True)
+@dataclass(frozen=True)
 class Info:
     """Object holding information and states of the Fumis WiRCU device."""
 
     unit_id: str
+    api_version: str
 
     unit_version: str
+    unit_temperature: float
     controller_version: str
 
     ip: str
@@ -43,12 +45,7 @@ class Info:
         temperature = temperatures[0] if temperatures else {}
 
         rssi = int(unit.get("rssi", -100))
-        if rssi <= -100:
-            signal_strength = 0
-        elif rssi >= -50:
-            signal_strength = 100
-        else:
-            signal_strength = 2 * (rssi + 100)
+        signal_strength = rssi_to_signal_strength(rssi)
 
         status_id = controller.get("status", -1)
         status = STATUS_MAPPING.get(status_id, STATUS_UNKNOWN)
@@ -57,6 +54,8 @@ class Info:
         state = STATE_MAPPING.get(state_id, STATE_UNKNOWN)
 
         return Info(
+            api_version=data.get("apiVersion", "Unknown"),
+            unit_temperature=unit.get("temperature", 0),
             controller_version=controller.get("version", "Unknown"),
             heating_time=int(stats.get("heatingTime", 0)),
             igniter_starts=stats.get("igniterStarts", 0),
@@ -75,3 +74,12 @@ class Info:
             unit_version=unit.get("version", "Unknown"),
             uptime=int(stats.get("uptime", 0)),
         )
+
+
+def rssi_to_signal_strength(rssi: int) -> int:
+    """Convert rssi into signal strength."""
+    if rssi <= -100:
+        return 0
+    if -100 < rssi <= -50:
+        return 2 * (rssi + 100)
+    return 100
